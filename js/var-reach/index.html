@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alcance de variables</title>
+    <script>
+        var mensaje1 = "Hola mundo desde var";
+        let mensaje2 = "Hola mundo desde let";
+
+        function funcionVar (){
+            var fnVar ="Estado 1 Var";
+            if (true) {
+                var fnVar = "Estado 2 Var";
+                console.log (fnVar);
+            }
+            console.log (fnVar);
+        }
+        function funcionLet (){
+            var fnLet ="Estado 1 Let";
+            if (true) {
+                let fnLet = "Estado 2 Let";
+                console.log (fnLet);
+            }
+            console.log (fnLet);
+        }
+    </script>
+</head>
+<body>
+    <nav><a href="../index.html">Volver al Inicio</a></nav>
+    <h1>Alcance de variables</h1>
+    <script>
+        funcionVar();
+        funcionLet();
+    </script>
+</body>
+</html>

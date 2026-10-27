@@ -3,6 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Boleto de La Quiniela</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;500;600&family=Roboto+Condensed:wght@400;500;700&family=Barlow+Semi+Condensed:wght@400;500;600&family=Archivo+Narrow:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -10,88 +14,79 @@
 <main class="boleto">
 
     <header class="cabecera">
-        <div class="cabecera">
-            <div class="logo-loteria">
-            <img src="./images/logo_loterias.png" alt="Logotipo Lotería Nacional">
-            </div>
-            <div class="sencillo-multiple">
-            <h1>SENCILLO-MÚLTIPLE</h1>
-            <span>261</span>
-            </div>
-            <div class="logo-quiniela">
-            <img src="./images/logo_quiniela.jpg" alt="Logotipo La Quiniela">
-            </div>
+
+      <img class="logo logo--loterias" src="./images/logo_loterias.png" alt="Lotería Nacional">
+
+      <div class="cabecera__centro">
+        <h1 class="titulo">
+          <span class="titulo__texto">SENCILLO-MÚLTIPLE</span>
+          <span class="titulo__numero">261</span>
+        </h1>
+
+        <p class="instrucciones">
+          <span><b>SENCILLAS:</b> Marque 14 signos por bloque (mínimo 2) en la zona de PRONÓSTICOS.</span>
+          <span><b>MÚLTIPLES:</b> Marque los pronósticos sólo en bloque 1 y el número de Dobles y Triples en la zona de COMBINACIONES.</span>
+        </p>
+
+        <div class="jornada">
+          <span class="jornada__liga">1.<sup>a</sup> Liga BBVA / 2.<sup>a</sup> Liga Adelante</span>
+          <span class="jornada__dato">JORNADA: <b>1.<sup>a</sup></b></span>
+          <span class="jornada__dato">FECHA: <b>23-8-15</b></span>
         </div>
+      </div>
+
+      <img class="logo logo--quiniela" src="./images/logo_quiniela.jpg" alt="La Quiniela">
     </header>
 
-    <section class="instrucciones">
-        <p>SENCILLAS: Marque 14 signos por bloque...</p>
-        <p>MÚLTIPLES: Marque los pronósticos...</p>
+    <!-- CUERPO  -->
+    <section class="cuerpo">
+
+    <!-- ===== Tramo 2: partidos ===== -->
+    <ol class="partidos">
+        <li><span class="equipos">Deportivo-R. Sociedad</span><span class="puntos"></span><span class="num">1</span></li>
+        <li><span class="equipos">Rayo Vallecano-Valencia</span><span class="puntos"></span><span class="num">2</span></li>
+        <li><span class="equipos">Athletic Club-Barcelona</span><span class="puntos"></span><span class="num">3</span></li>
+        <li><span class="equipos">Sporting-R. Madrid</span><span class="puntos"></span><span class="num">4</span></li>
+
+        <li><span class="equipos">Betis-Villarreal</span><span class="puntos"></span><span class="num">5</span></li>
+        <li><span class="equipos">Espanyol-Getafe</span><span class="puntos"></span><span class="num">6</span></li>
+        <li><span class="equipos">Levante-Celta</span><span class="puntos"></span><span class="num">7</span></li>
+        <li><span class="equipos">Almería-Leganés</span><span class="puntos"></span><span class="num">8</span></li>
+
+        <li><span class="equipos">Mirandés-Zaragoza</span><span class="puntos"></span><span class="num">9</span></li>
+        <li><span class="equipos">Llagostera-Osasuna</span><span class="puntos"></span><span class="num">10</span></li>
+        <li><span class="equipos">Oviedo-Lugo</span><span class="puntos"></span><span class="num">11</span></li>
+
+        <li><span class="equipos">Gimnàstic-Albacete</span><span class="puntos"></span><span class="num">12</span></li>
+        <li><span class="equipos">Alcorcón-Mallorca</span><span class="puntos"></span><span class="num">13</span></li>
+        <li><span class="equipos">Córdoba-Valladolid</span><span class="puntos"></span><span class="num">14</span></li>
+    </ol>
+
+     <!-- ===== Tramo 3: rejilla de pronósticos ===== -->
+    <div class="pronosticos" aria-hidden="true">
+        <p class="pronosticos__titulo">PRONÓSTICOS</p>
+
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    </div>
+    
+    <!-- Tramo 4: combinaciones -->
     </section>
 
-    <section class="datos-jornada">
-        <strong>1.ª Liga BBVA / 2.ª Liga Adelante</strong>
-        <span>JORNADA: 1.ª</span>
-        <span>FECHA: 23-8-15</span>
-    </section>
-
-    <section class="zona-central">
-
-        <div class="zona-pronosticos">
-
-            <div class="encabezado-pronosticos">
-                <h2>PRONÓSTICOS</h2>
-            </div>
-
-            <div class="lista-partidos">
-                <!-- 14 filas con número y equipos -->
-            </div>
-
-            <div class="matriz-pronosticos">
-                <!-- 8 bloques de pronósticos -->
-                <!-- Cada bloque contiene 14 filas -->
-                <!-- Cada fila tiene las opciones 1, X y 2 -->
-            </div>
-
-        </div>
-
-        <aside class="combinaciones">
-            <h2>COMBINACIONES</h2>
-            <div class="dobles">
-                <!-- Casillas numeradas del 1 al 14 -->
-            </div>
-            <div class="triples">
-                <!-- Casillas numeradas del 1 al 9 -->
-            </div>
-        </aside>
-
-    </section>
-
-    <footer class="pie-boleto">
-
-        <div class="bien-mal">
-            <!-- Casillas BIEN y MAL -->
-        </div>
-
-        <section class="pleno-al-15">
-            <h2>PLENO AL 15</h2>
-            <div class="equipo-local">
-                AT. MADRID
-                <!-- Opciones 0, 1, 2, M -->
-            </div>
-            <div class="equipo-visitante">
-                LAS PALMAS
-                <!-- Opciones 0, 1, 2, M -->
-            </div>
-        </section>
-
-        <section class="bloques">
-            <h2>BLOQUES</h2>
-            <!-- Bloques numerados del 1 al 8 -->
-        </section>
-
-    </footer>
-
+    <!-- ===== PIE (Tramo 5) ===== -->
+    <footer class="pie"></footer>
 </main>
 
 </body>

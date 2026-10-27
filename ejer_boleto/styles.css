@@ -1,53 +1,262 @@
-.cabecera{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    margin-bottom: 20px;
-}
-.logo-izquierda{
-    width: 180px;
-    /* display: flex; */
-    justify-content: center;
-    align-items: center;
-    flex: 1;
+/* =========================================================
+   1. VARIABLES (paleta y medidas tomadas del boleto original)
+   ========================================================= */
+:root {
+  --rojo:        #ee7d73;   /* líneas, casillas y textos rojos */
+  --rojo-fondo:  #ee7d73;   /* fondo rosado de la zona de pronósticos */
+  --azul:        #5895c4;   /* barra del título #3b82c4*/
+  --azul-texto:  #5895c4;   /* nombres de equipos, textos azules #2c6cb5*/
+  --papel:       #ffffff;
+  --tinta:       #222222;
+
+  --fuente: "Fira Sans Condensed", "Arial Narrow", Arial, sans-serif;
+
+  --alto-fila: 3.1cqw;      /* 39px de 1257 → altura de cada partido */
 }
 
-.logo-quiniela img{
-    width: 100%;
-    height: auto;
+/* =========================================================
+   2. RESET MÍNIMO
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
- .sencillo-multiple{
-width: 600px;
-height: 60px;
-background-color: #4B8FCE;
-color: white;
 
-display: flex;
-justify-content: space-between;
-align-items: center;
+body {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background: #d9d9d9;            /* fondo neutro para que destaque el boleto */
+  font-family: var(--fuente);
+}
 
-padding: 0 30px;
-box-sizing: border-box;
+img { display: block; max-width: 100%; }
 
-font-family: Arial, sans-serif;
-font-weight: bold;
+/* =========================================================
+   3. CONTENEDOR DEL BOLETO
+   - Proporción exacta de la imagen: 1257 x 825
+   - container-type permite usar cqw (1cqw = 1% del ancho del boleto)
+   ========================================================= */
+.boleto {
+  container-type: inline-size;
+  width: min(96vw, 1257px);
+  aspect-ratio: 1257 / 825;
+  position: relative;
+  background: var(--papel);
+  color: var(--azul-texto);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .25);
+  overflow: hidden;
 }
-/*.titulo h1{
-margin: 0;
-font-size: 2rem;
-letter-spacing: 2px;
+
+/* =========================================================
+   4. CABECERA (medidas en cqw: 1cqw = 12,57px del original)
+   ========================================================= */
+.cabecera {
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 22%;
+  display: grid;
+  grid-template-columns: 21.9cqw 56.1cqw 22cqw;   /* 275 | 705 | 277 px */
+  align-items: start;
 }
-.titulo span{
-font-size: 2rem;
+
+/* --- Logos --- */
+.logo { height: auto; }
+.logo--loterias { width: 19.5cqw; margin: 1.6cqw 0 0 2cqw; }    /* x=25px  y=20px  */
+.logo--quiniela { width: 17.1cqw; margin: 2.8cqw 0 0 2cqw; }    /* x=1005px y=35px */
+
+/* --- Barra azul --- */
+.titulo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6cqw;
+  height: 3.6cqw;                  /* 45px */
+  margin-top: 1.75cqw;             /* 22px */
+  background: var(--azul);
+  color: #fff;
+  font-size: 2.9cqw;
+  font-weight: 500;
+  letter-spacing: .03em;
+  line-height: 1;
 }
-.logo-derecha{
-width: 180px;
-display: flex;
-justify-content: center;
-align-items: center;
+
+/* --- Instrucciones (dos líneas, sin saltos automáticos) --- */
+.instrucciones {
+  display: flex;
+  flex-direction: column;
+  margin-top: .9cqw;
+  font-size: 1.15cqw;
+  line-height: 1.27;
+  white-space: nowrap;             /* evita que la línea 2 se parta */
+  color: var(--tinta);
 }
-.logo-derecha img{
-width: 100%;
-height: auto;
-} */
+.instrucciones b { font-weight: 400; }
+
+/* --- Recuadro Liga / Jornada / Fecha --- */
+.jornada {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1.6cqw;
+  padding: 0 1.2cqw;
+  height: 3cqw;                    /* 38px */
+  border: .16cqw solid var(--azul);
+  color: var(--azul-texto);
+  line-height: 1;
+}
+.jornada__liga   { font-size: 2.45cqw; font-weight: 600; }
+.jornada__dato   { font-size: 1.35cqw; font-weight: 600; }
+.jornada__dato b { font-size: 1.85cqw; font-weight: 600; }
+.jornada sup     { font-size: .6em; }
+
+/* =========================================================
+   5. CUERPO + COLUMNA DE PARTIDOS
+   Origen: x=62px, y=213px del boleto original
+   ========================================================= */
+.cuerpo {
+  position: absolute;
+  top: 16.95cqw;            /* 213px */
+  left: 4.93cqw;            /* 62px  */
+  width: 80.6cqw;           /* hasta x=1075px, donde acaba la rejilla */
+  display: flex;
+  align-items: flex-start;
+}
+
+.partidos {
+  list-style: none;
+  width: 23.7cqw;           /* 62px → 360px, justo hasta la zona rosada */
+   flex: none; 
+}
+
+.partidos li {
+  height: var(--alto-fila);
+  display: flex;
+  align-items: center;
+  padding-right: 1.7cqw;
+  font-size: 1.65cqw;
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: -.01em;
+  color: var(--azul-texto);
+}
+
+/* Número del partido, a la derecha */
+.num {
+  margin-left: .8cqw;
+  font-size: 1.85cqw;
+  /* font-weight: 500; */
+}
+
+/* Puntos de relleno entre el equipo y el número */
+.puntos {
+  flex: 1;
+  height: .3cqw;
+  margin-top: 1.2cqw;       /* los baja hasta la línea base del texto */
+  background-image: radial-gradient(circle, var(--azul-texto) 38%, transparent 42%);
+  background-size: .55cqw .3cqw;
+  background-repeat: repeat-x;
+}
+
+/* Líneas rojas que separan los grupos: filas 1-4 | 5-8 | 9-11 | 12-14 */
+.partidos li:nth-child(1),
+.partidos li:nth-child(5),
+.partidos li:nth-child(9),
+.partidos li:nth-child(12) {
+  border-top: .26cqw solid var(--rojo);
+}
+.partidos li:last-child {
+  border-bottom: .26cqw solid var(--rojo);
+}
+/* =========================================================
+   6. REJILLA DE PRONÓSTICOS
+   x=360 → 1075 px (56.9cqw). 8 bloques de 7.11cqw.
+   ========================================================= */
+:root {
+  --ancho-bloque: 7.11cqw;     /* 89px */
+  --ancho-casilla: 1.95cqw;    /* 24.5px */
+  --alto-casilla: 2.2cqw;      /* 27.5px */
+}
+
+.pronosticos {
+  position: relative;
+  flex: none;
+  width: 56.9cqw;
+  border: .16cqw solid var(--rojo);
+  border-top: 0;
+
+  /* Bloque impar: rosa · bloque par: blanco (se repite 4 veces) */
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--rojo-fondo) 0,
+    var(--rojo-fondo) var(--ancho-bloque),
+    var(--papel)      var(--ancho-bloque),
+    var(--papel)      calc(var(--ancho-bloque) * 2)
+  );
+}
+
+/* --- Cabecera «P R O N Ó S T I C O S» (encima de la rejilla) --- */
+.pronosticos__titulo {
+  position: absolute;
+  bottom: 100%;
+  left: -.16cqw;
+  right: -.16cqw;
+  height: 2.9cqw;                        /* 36px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--papel);
+  border: .16cqw solid var(--rojo);
+  border-bottom: 0;
+  color: var(--rojo);
+  font-size: 1.55cqw;
+  letter-spacing: .95em;
+  padding-left: .95em;                   /* compensa el espacio tras la última letra */
+}
+
+/* --- Filas: misma altura que los partidos --- */
+.fila {
+  height: var(--alto-fila);
+  display: flex;
+  align-items: center;
+}
+
+/* Mismas líneas rojas de grupo que en la columna de partidos */
+.fila:nth-of-type(1),
+.fila:nth-of-type(5),
+.fila:nth-of-type(9),
+.fila:nth-of-type(12) {
+  border-top: .16cqw solid var(--rojo);
+}
+.fila:last-of-type {
+  border-bottom: .16cqw solid var(--rojo);
+}
+
+/* --- Casillas --- */
+.fila i {
+  width: var(--ancho-casilla);
+  height: var(--alto-casilla);
+  margin: 0 .12cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--papel);
+  border: .12cqw solid var(--rojo);
+  color: var(--rojo);
+  font-style: normal;
+  font-size: 1.6cqw;
+  line-height: 1;
+  
+}
+
+/* Signos: 1 · X · 2 repetidos en cada bloque */
+.fila i:nth-child(3n+1)::before { content: "1"; }
+.fila i:nth-child(3n+2)::before { content: "X"; }
+.fila i:nth-child(3n)::before   { content: "2"; }
+
+/* Aire extra en los bordes de cada bloque para separarlos */
+.fila i:nth-child(3n+1) { margin-left:  .39cqw; }
+.fila i:nth-child(3n)   { margin-right: .39cqw; }
