@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <script>
+        function loadPage(){
+            console.log("Página cargada");
+        }
+        function btnClk(e){
+            console.log("Botón clicado");
+        }
+        function pOver(e){
+            console.log("El ratón pasó por encima");
+        }
+        function pressed(e){
+            console.log(e.key);
+        }
+        function btnEvent(e){
+            console.log(e.target);
+        }
+        function change(){
+            console.log("Cambio detectado");
+        }
+        function writing(){
+            console.log("Escribiendo");
+            
+        }
+    </script>
+</head>
+<body onload="loadPage()">
+   <nav>
+    <a href="../index.html">Volver al Inicio</a>
+    <div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav> 
+   <button onclick="btnClk()">Click me!</button>
+   <p style="border: 1px solid black" onmouseover="pOver()">Hola</p>
+   <input onkeypress="pressed(event)">
+   <button id="idBoton" data-id="info" onclick="btnEvent(event)">Check event!</button>
+   <input onchange="change()" oninput="writing()">
+</body>
+</html>

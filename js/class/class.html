@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases y Objetos</title>
+    <script>
+        class Car {
+            constructor(brand, model) {
+                this.brand = brand;
+                this.model = model;
+            }
+            showInfo() {
+                console.log("El coches es un", this.brand, this.model);
+            }
+        }
+        class NominaAnual {
+            constructor(name, salary) {
+                this.name = name;
+                this.salary = salary;
+            }
+            getMonthlyPayment(){
+                console.log(this.name, "cobrará", this.salary/14, "por mes");
+            }
+            getProRatedPayment(){
+                console.log(this.name, "cobrará", this.salary/12, "en 12 pagas prorateadas");
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav><a href="../index.html">Volver al Inicio</a></nav>
+    <h1>Clases y Objetos</h1>
+    <script>
+        let car = new Car("Citroën", "Xsara");
+        console.log(car.model);
+        let car2 = new Car("Toyota", "Avensis");
+        let car3 = new Car("Renault", "Clio");
+        car.showInfo();
+        car2.showInfo();
+        car3.showInfo();
+
+        let nominaAnual = new NominaAnual("Eustaquio", 27000);
+        nominaAnual.getMonthlyPayment();
+        nominaAnual.getProRatedPayment();
+    </script>
+</body>
+</html>

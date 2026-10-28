@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Break - Continue</title>
+    <script>
+        function functionBreakContinue(val){
+            for(let i = 0; i < val; i++){
+                if(i === 2){
+                    console.log("Continue at iteration " + i);
+                    continue;
+                }
+                if(i === 4){
+                    console.log("Break at iteration " + i);
+                    break;
+                }
+                console.log("Iteration " + i);
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Volver al Inicio</a></nav>
+        <div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
+    <script>
+        functionBreakContinue(5);
+    </script>
+</body>
+</html>

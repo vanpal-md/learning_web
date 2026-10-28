@@ -3,11 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Boleto de La Quiniela</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;500;600&family=Roboto+Condensed:wght@400;500;700&family=Barlow+Semi+Condensed:wght@400;500;600&family=Archivo+Narrow:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;500;600&family=Fira+Sans+Extra+Condensed:wght@400;500;600&family=Barlow+Semi+Condensed:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
@@ -82,11 +80,87 @@
         <div class="fila"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
     
-    <!-- Tramo 4: combinaciones -->
     </section>
+    
+    <!-- ===== Tramo 4: combinaciones ===== -->
+    <aside class="comb" aria-hidden="true">
+    <p class="comb__titulo">COMBINACIONES</p>
 
-    <!-- ===== PIE (Tramo 5) ===== -->
-    <footer class="pie"></footer>
+    <div class="comb__cuerpo">
+
+        <!-- Dobles: 1 a 14 -->
+        <div class="comb__col comb__col--dobles">
+        <ol class="comb__lista">
+            <li><span>1</span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li><span>6</span></li>
+            <li><span>7</span></li>
+            <li><span>8</span></li>
+            <li><span>9</span></li>
+            <li><span>10</span></li>
+            <li><span>11</span></li>
+            <li><span>12</span></li>
+            <li><span>13</span></li>
+            <li><span>14</span></li>
+        </ol>
+        <p class="comb__nota"><span class="flecha">↑</span>DOBLES</p>
+        </div>
+
+        <!-- Triples: 1 a 9 -->
+        <div class="comb__col comb__col--triples">
+        <ol class="comb__lista">
+            <li><span>1</span></li>
+            <li><span>2</span></li>
+            <li><span>3</span></li>
+            <li><span>4</span></li>
+            <li><span>5</span></li>
+            <li><span>6</span></li>
+            <li><span>7</span></li>
+            <li><span>8</span></li>
+            <li><span>9</span></li>
+        </ol>
+        <p class="comb__nota"><span class="flecha">↑</span>TRIPLES</p>
+        </div>
+
+    </div>
+    </aside>
+
+    <!-- ===== Tramo 5: pie ===== -->
+    <footer class="pie" aria-hidden="true">
+
+    <!-- BIEN / MAL -->
+    <span class="bm__txt bm__txt--bien">BIEN</span>
+    <i class="caja-x caja-x--bien"></i>
+    <span class="bm__txt bm__txt--mal">MAL</span>
+    <i class="caja-x caja-x--mal"></i>
+
+    <!-- PLENO AL 15 -->
+    <p class="pleno">PLENO AL 15</p>
+
+    <div class="pleno-eq pleno-eq--1">
+        <span class="pleno-eq__nombre">AT. MADRID</span>
+        <span class="puntos"></span>
+        <span class="res"><i>0</i><i>1</i><i>2</i><i>M</i></span>
+    </div>
+
+    <div class="pleno-eq pleno-eq--2">
+        <span class="pleno-eq__nombre">LAS PALMAS</span>
+        <span class="puntos"></span>
+        <span class="res"><i>0</i><i>1</i><i>2</i><i>M</i></span>
+    </div>
+
+    <!-- BLOQUES -->
+    <p class="bloques-txt">BLOQUES →</p>
+    <ol class="bloques">
+        <li>1</li><li>2</li><li>3</li><li>4</li>
+        <li>5</li><li>6</li><li>7</li><li>8</li>
+    </ol>
+
+    </footer>
+    
 </main>
 
 </body>

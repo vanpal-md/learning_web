@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>If - Else</title>
+    <script>
+        const value = 7;
+
+        function functionIf(val){
+            if (val >= 5) {
+                    console.log("1.- Greater or equal than 5");
+            }
+        }
+        
+        function functionIfElse(val){
+            if (val >= 5) {
+                console.log("2.- Greater or equal than 5");
+            } else {
+                console.log("2.- Less than 5");
+            }
+        }
+
+        function functionIfElseIf(val){
+            if (val >= 10) {
+                console.log("3.- Greater or equal than 10");
+            } else if (val <= 5) {
+                console.log("3.- Less or equal than 5");
+            } else {
+                console.log("3.- Between 6 and 9");
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Volver al Inicio</a></nav>
+        <div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
+    <script>
+        functionIf(value);
+        functionIfElse(value);
+        functionIfElseIf(value);
+    </script>
+</body>
+</html>

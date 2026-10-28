@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modificación del árbol DOM</title>
+    <script>
+        function addTask(){
+            let input = document.getElementById("inputBox");
+            console.log(input.value);
+            let li = document.createElement("li")
+            li.innerHTML = input.value
+            document.getElementById("task").appendChild(li)
+            input.value = ""; 
+        }
+        
+        function deleteMe(btn){
+            console.log(btn.parentNode);
+            btn.parentNode.remove();
+            
+        }
+    </script>
+</head>
+<body>
+    <nav>
+    <a href="../index.html">Volver al Inicio</a>
+    <div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
+    <input name="task" type="text" id="inputBox">
+    <button onclick="addTask()">Añadir tarea</button>
+    <ul id="task">
+
+    </ul>
+    <button id="deleteBtn" onclick="deleteMe(this)">Hago magia y desaparezco PARA SIEMPRE!</button>
+</body>
+</html>

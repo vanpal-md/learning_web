@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores aritméticos</title>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Volver al Inicio</a></nav>
+        <div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
+    <script>
+        let a = 10;
+        let b = 5;
+        console.log(a + b); // Suma
+        console.log(a - b); // Resta
+        console.log(a * b); // Multiplicación
+        console.log(a / b); // División
+        console.log(a % b); // Módulo
+        console.log(a ** b); // Exponenciación
+        console.log(++a); // Incremento → Primero incrementa, luego imprime
+        console.log(--a); // Decremento → Primero decrementa, luego imprime
+    
+        a = 12;
+
+        // // Si queremos escribir en mensaje en la consola podemos usar console.log con una cadena de texto, separando el mensaje de los valores con comas.
+        console.log("El valor de a es:", a);
+        console.log("El valor de b es:", b);
+
+        // // Tambien podemos usar el + para concatenar cadenas de texto con valores.
+        console.log("El valor de a es: " + a);
+        console.log("El valor de b es: " + b);
+
+        // // Si queremos hacer operaciones dentro de un mensaje, podemos usar los paréntesis para agrupar la operación.
+        console.log("La suma de a y b es: " + (a + b));
+        console.log("La suma de a y b es: ", a + b);
+        console.log("La suma de a y b es: ", (a + b));
+        console.log("La resta de a y b es: " + (a - b));
+        console.log("La multiplicación de a y b es: " + (a * b));
+        console.log("La división de a y b es: " + (a / b));
+        console.log("El módulo de a y b es: " + (a % b));
+        console.log("La exponenciación de a y b es: " + (a ** b));
+        // console.log("El incremento de a es: " + (a++));  // Primero imprime, luego incrementa
+        // console.log("El decremento de a es: " + (a--)); // Primero imprime, luego decrementa
+        console.log("a vale:",a++, "y ahora" , a);  // Primero imprime, luego incrementa
+        console.log("a vale:",a--, "y ahora" , a); // Primero imprime, luego decrementa
+    </script>
+</body>
+</html>

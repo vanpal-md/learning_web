@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locales</title>
+    <script>
+        const date = new Date();
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Volver al Inicio</a>
+        <div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
+    <script>
+        console.log(date);
+        console.log(date.toLocaleString());
+        console.log(date.toISOString());          
+        console.log(date.toLocaleDateString("es-ES"));
+        console.log(date.toLocaleDateString("ar-EG"));
+        console.log(date.toLocaleDateString("es-MX"));
+        console.log(date.getTime());
+    </script>
+</body>
+</html>

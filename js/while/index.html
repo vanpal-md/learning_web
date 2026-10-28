@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bucle While / Do-While</title>
+    <script>
+        function functionWhile(val){
+            let i = 0;
+            while(i < val){
+                console.log("While iteration " + i);
+                i++;
+            }
+        }
+
+        function functionDoWhile(val){
+            let i = 0;
+            do{
+                console.log("Do-While iteration " + i);
+                i++;
+            }while(i < val);
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Volver al Inicio</a></nav>
+        <div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
+    <script>
+        functionWhile(5);
+        functionDoWhile(5);
+    </script>
+</body>
+</html>

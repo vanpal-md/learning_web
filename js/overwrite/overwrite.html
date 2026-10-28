@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobreescritura</title>
+    <script>
+        class Vehicle {
+            constructor(brand) {
+                this.brand = brand;
+            }
+
+            start() {
+                console.log(this.brand + " is starting.");
+            }
+        }
+
+        class Car extends Vehicle{
+            constructor(brand, model){
+                super(brand);
+                this.model = model;
+            }
+
+            start(){
+                // super.start();
+                console.log(this.brand, this.model, "is starting.");
+            }
+
+
+            getDesc(){
+                console.log(this.brand, "is ready!");
+            }
+        }
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Volver al Inicio</a>
+        <div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
+    <script>
+        let v = new Vehicle("Ford");
+        v.start();
+        let c = new Car("Toyota", "Avensis");
+        c.start()
+        c.getDesc();
+    </script>
+</body>
+</html>

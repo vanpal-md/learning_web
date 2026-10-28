@@ -7,11 +7,13 @@
   --azul:        #5895c4;   /* barra del título #3b82c4*/
   --azul-texto:  #5895c4;   /* nombres de equipos, textos azules #2c6cb5*/
   --papel:       #ffffff;
-  --tinta:       #222222;
-
-  --fuente: "Fira Sans Condensed", "Arial Narrow", Arial, sans-serif;
-
+  --tinta:       #000000;
+  --fuente:   "Fira Sans Extra Condensed", Arial, sans-serif;
   --alto-fila: 3.1cqw;      /* 39px de 1257 → altura de cada partido */
+  --grosor-grupo: .26cqw;        /* grosor de la línea que separa los grupos */
+  --ancho-bloque: 7.11cqw;     /* 89px */
+  --ancho-casilla: 1.95cqw;    /* 24.5px */
+  --alto-casilla: 2.2cqw;      /* 27.5px */
 }
 
 /* =========================================================
@@ -65,8 +67,8 @@ img { display: block; max-width: 100%; }
 
 /* --- Logos --- */
 .logo { height: auto; }
-.logo--loterias { width: 19.5cqw; margin: 1.6cqw 0 0 2cqw; }    /* x=25px  y=20px  */
-.logo--quiniela { width: 17.1cqw; margin: 2.8cqw 0 0 2cqw; }    /* x=1005px y=35px */
+.logo--loterias { width: 19.5cqw; margin: 0.6cqw 0 0 2cqw; }    /* x=25px  y=20px  */
+.logo--quiniela { width: 17.1cqw; margin: 1.8cqw 0 0 2cqw; }    /* x=1005px y=35px */
 
 /* --- Barra azul --- */
 .titulo {
@@ -74,8 +76,8 @@ img { display: block; max-width: 100%; }
   justify-content: center;
   align-items: center;
   gap: 6cqw;
-  height: 3.6cqw;                  /* 45px */
-  margin-top: 1.75cqw;             /* 22px */
+  height: 4.2cqw;                  /* 45px */
+  margin-top: 1.15cqw;             /* 22px */
   background: var(--azul);
   color: #fff;
   font-size: 2.9cqw;
@@ -154,10 +156,11 @@ img { display: block; max-width: 100%; }
 /* Puntos de relleno entre el equipo y el número */
 .puntos {
   flex: 1;
-  height: .3cqw;
-  margin-top: 1.2cqw;       /* los baja hasta la línea base del texto */
-  background-image: radial-gradient(circle, var(--azul-texto) 38%, transparent 42%);
-  background-size: .55cqw .3cqw;
+  height: .26cqw;                       /* diámetro del punto */
+  margin-top: 1.2cqw;                   /* lo baja hasta la línea base del texto */
+
+  background-image: radial-gradient(circle closest-side, var(--azul-texto) 92%, transparent 100%);
+  background-size: 1.2cqw .26cqw;       /* ← 1.4cqw = distancia entre puntos */
   background-repeat: repeat-x;
 }
 
@@ -165,27 +168,28 @@ img { display: block; max-width: 100%; }
 .partidos li:nth-child(1),
 .partidos li:nth-child(5),
 .partidos li:nth-child(9),
-.partidos li:nth-child(12) {
-  border-top: .26cqw solid var(--rojo);
+.partidos li:nth-child(12),
+.fila:nth-of-type(1),
+.fila:nth-of-type(5),
+.fila:nth-of-type(9),
+.fila:nth-of-type(12) {
+  border-top: var(--grosor-grupo) solid var(--rojo);
 }
-.partidos li:last-child {
-  border-bottom: .26cqw solid var(--rojo);
+
+.partidos li:last-child,
+.fila:last-of-type {
+  border-bottom: var(--grosor-grupo) solid var(--rojo);
 }
 /* =========================================================
    6. REJILLA DE PRONÓSTICOS
    x=360 → 1075 px (56.9cqw). 8 bloques de 7.11cqw.
    ========================================================= */
-:root {
-  --ancho-bloque: 7.11cqw;     /* 89px */
-  --ancho-casilla: 1.95cqw;    /* 24.5px */
-  --alto-casilla: 2.2cqw;      /* 27.5px */
-}
 
 .pronosticos {
   position: relative;
   flex: none;
   width: 56.9cqw;
-  border: .16cqw solid var(--rojo);
+  border: .26cqw solid var(--rojo);
   border-top: 0;
 
   /* Bloque impar: rosa · bloque par: blanco (se repite 4 veces) */
@@ -209,11 +213,11 @@ img { display: block; max-width: 100%; }
   align-items: center;
   justify-content: center;
   background: var(--papel);
-  border: .16cqw solid var(--rojo);
+  border: .26cqw solid var(--rojo);
   border-bottom: 0;
   color: var(--rojo);
-  font-size: 1.55cqw;
-  letter-spacing: .95em;
+  font-size: 1.65cqw;
+  letter-spacing: 1.95em;
   padding-left: .95em;                   /* compensa el espacio tras la última letra */
 }
 
@@ -224,15 +228,37 @@ img { display: block; max-width: 100%; }
   align-items: center;
 }
 
-/* Mismas líneas rojas de grupo que en la columna de partidos */
-.fila:nth-of-type(1),
-.fila:nth-of-type(5),
-.fila:nth-of-type(9),
-.fila:nth-of-type(12) {
-  border-top: .16cqw solid var(--rojo);
+/* Cada fila es el punto de referencia de su pseudo-elemento */
+.fila { position: relative; }
+
+/* Fila 1: línea completa que cierra el título «PRONÓSTICOS» */
+.fila:nth-of-type(1) {
+  border-top: .8cqw solid var(--rojo);
 }
+
+/* Filas 5, 9 y 12: línea gruesa SOLO sobre los bloques pares (blancos) */
+.fila:nth-of-type(5)::before,
+.fila:nth-of-type(9)::before,
+.fila:nth-of-type(12)::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  top: -.6cqw;
+  height: .8cqw;                         /* grosor de la línea */
+  background: repeating-linear-gradient(
+    90deg,
+    transparent 0,
+    transparent var(--ancho-bloque),     /* bloque impar (rosa): sin línea */
+    var(--rojo) var(--ancho-bloque),
+    var(--rojo) calc(var(--ancho-bloque) * 2)   /* bloque par (blanco): línea */
+  );
+}
+
+/* Cierre inferior de la rejilla */
 .fila:last-of-type {
-  border-bottom: .16cqw solid var(--rojo);
+  border-bottom: .7cqw solid var(--rojo);
 }
 
 /* --- Casillas --- */
@@ -260,3 +286,211 @@ img { display: block; max-width: 100%; }
 /* Aire extra en los bordes de cada bloque para separarlos */
 .fila i:nth-child(3n+1) { margin-left:  .39cqw; }
 .fila i:nth-child(3n)   { margin-right: .39cqw; }
+
+/* =========================================================
+   7. COMBINACIONES
+   Origen: x=1117px, y=177px · ancho 130px (10.34cqw)
+   Columna dobles 58px (4.61cqw) + columna triples 72px (5.73cqw)
+   ========================================================= */
+.comb {
+  position: absolute;
+  left: 88.86cqw;
+  top: 14.05cqw;
+  width: 10.34cqw;
+  color: var(--rojo);
+}
+
+.comb__titulo {
+  height: 2.9cqw;                       /* igual que «PRONÓSTICOS» */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: .26cqw solid var(--rojo);
+  font-size: 1.45cqw;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* --- Cuerpo: contorno en forma de L --- */
+.comb__cuerpo {
+  display: flex;
+  height: 47.5cqw;                      /* de y=213 a y=810 */
+}
+.comb__col { position: relative; flex: none; }
+
+.comb__col--dobles {
+  width: 4.61cqw;
+  border-left: .26cqw solid var(--rojo);
+  border-bottom: .26cqw solid var(--rojo);
+}
+/* Línea vertical interior: solo desde el escalón hacia abajo */
+.comb__col--dobles::after {
+  content: "";
+  position: absolute;
+  top: 32.6cqw;
+  right: 0;
+  bottom: 0;
+  border-right: .26cqw solid var(--rojo);
+}
+
+.comb__col--triples {
+  width: 5.73cqw;
+  height: 32.8cqw;                      /* el escalón queda en y=625px */
+  border-right: .26cqw solid var(--rojo);
+  border-bottom: .26cqw solid var(--rojo);
+}
+
+/* --- Casillas numeradas --- */
+.comb__lista { list-style: none; }
+.comb__lista li {
+  height: var(--alto-fila);             /* alineadas con las filas del boleto */
+  display: flex;
+  align-items: center;
+}
+.comb__col--dobles  .comb__lista li { padding-left: 1.5cqw; }
+.comb__col--triples .comb__lista li { padding-left: 1.2cqw; }
+
+.comb__lista span {
+  width: 1.75cqw;
+  height: 2.2cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: .12cqw solid var(--rojo);
+  background: var(--papel);
+  font-size: 1.55cqw;
+  line-height: 1;
+}
+
+/* --- Flechas «↑ DOBLES» y «↑ TRIPLES» --- */
+.comb__nota {
+  text-align: center;
+  font-size: 1.25cqw;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+.comb__nota .flecha {
+  display: block;
+  font-size: 1.7cqw;
+  line-height: 1;
+}
+/* =========================================================
+   8. PIE
+   Origen: y=757px (60.3cqw). Todo posicionado respecto al pie.
+   ========================================================= */
+.pie {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 60.3cqw;
+  bottom: 0;
+}
+
+/* --- BIEN / MAL --- */
+.bm__txt {
+  position: absolute;
+  font-size: 1.05cqw;
+  line-height: 1;
+  color: var(--azul-texto);
+}
+.bm__txt--bien { left: 5.73cqw; top: 1.95cqw; }
+.bm__txt--mal  { left: 10.5cqw; top: 2.9cqw; }
+
+.caja-x {
+  position: absolute;
+  width: 1.9cqw;
+  height: 2.3cqw;
+  border: .12cqw solid var(--azul-texto);
+}
+.caja-x--bien { left: 8.27cqw; top: .72cqw; }
+.caja-x--mal  { left: 13.1cqw; top: 1.67cqw; }
+
+/* La X se dibuja con dos degradados cruzados */
+.caja-x::after {
+  content: "";
+  position: absolute;
+  inset: .25cqw;
+  background:
+    linear-gradient(to top right,    transparent calc(50% - .07cqw), var(--azul-texto) calc(50% - .07cqw), var(--azul-texto) calc(50% + .07cqw), transparent calc(50% + .07cqw)),
+    linear-gradient(to bottom right, transparent calc(50% - .07cqw), var(--azul-texto) calc(50% - .07cqw), var(--azul-texto) calc(50% + .07cqw), transparent calc(50% + .07cqw));
+}
+/* En «MAL» la X se sale de la casilla, desplazada */
+.caja-x--mal::after { transform: translate(.75cqw, .3cqw); }
+
+/* --- PLENO AL 15 --- */
+.pleno {
+  position: absolute;
+  left: 18.46cqw;
+  top: .95cqw;
+  font-size: 1.8cqw;
+  line-height: 1;
+  color: var(--rojo);
+  white-space: nowrap;
+}
+
+/* --- Equipo + puntos + casillas 0 1 2 M --- */
+.pleno-eq {
+  position: absolute;
+  top: .7cqw;
+  height: 2.15cqw;
+  display: flex;
+  align-items: center;
+  font-size: 1.8cqw;
+  line-height: 1;
+  color: var(--azul-texto);
+  white-space: nowrap;
+}
+.pleno-eq--1 { left: 29.27cqw; width: 25.2cqw; }   /* x=368px */
+.pleno-eq--2 { left: 59.8cqw;  width: 25.1cqw; }   /* x=752px */
+
+.pleno-eq .puntos {                                 /* reutiliza los puntos del tramo 2 */
+  margin: .9cqw .6cqw 0 .5cqw;
+}
+
+.res { display: flex; gap: .25cqw; }
+.res i {
+  width: 2cqw;
+  height: 2.15cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: .12cqw solid var(--rojo);
+  background: var(--papel);
+  color: var(--rojo);
+  font-style: normal;
+  font-size: 1.6cqw;
+}
+.res i:last-child { width: 2.2cqw; }                /* la «M» es algo más ancha */
+
+/* --- BLOQUES --- */
+.bloques-txt {
+  position: absolute;
+  left: 16.9cqw;
+  top: 3.5cqw;
+  font-size: 1.9cqw;
+  line-height: 1;
+  color: var(--azul-texto);
+  white-space: nowrap;
+}
+
+.bloques {
+  position: absolute;
+  left: 28.64cqw;                                   /* x=360px, igual que la rejilla */
+  top: 3.26cqw;
+  display: grid;
+  grid-template-columns: repeat(8, var(--ancho-bloque));
+  list-style: none;
+}
+.bloques li {
+  height: 1.95cqw;
+  margin: 0 .35cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--rojo);
+  color: #fff;
+  font-size: 1.6cqw;
+  font-weight: 600;
+  letter-spacing: .15em;
+  line-height: 1;
+}

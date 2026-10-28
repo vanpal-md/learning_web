@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operadores lógicos</title>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Volver al Inicio</a></nav>
+        <div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
+    <script>
+        const edad = 18;
+        const precio = 50;
+
+        //Comparaciones
+
+        console.log(edad > 18);   // false (18 no es estrictamente mayor que 18)
+        console.log(edad >= 18);  // true  (18 es mayor o igual que 18)
+        console.log(precio < 100);  // true  (50 es menor que 100)
+        console.log(precio <= 50);  // true  (50 es menor o igual a 50)
+
+        // //Operadores lógicos
+        console.log(edad > 18 && precio < 100); // false && true => false
+        console.log(!edad >= 18 || precio > 100); // true || false => true
+        console.log(!(edad < 18)); // !(false) => true  
+
+        // // Igualdad / desigualdad
+        console.log(edad == "18"); // true (18 es igual a 18)
+        console.log(edad != "17"); // true (18 es diferente de 17)
+
+        // //Igualdad estricta / desigualdad estricta  
+        console.log(precio === 50); // true (50 es estrictamente igual a 50)
+        console.log(precio !== 50); // false (50 no es estrictamente diferente de 50)
+        console.log(precio === "50"); // false (50 es estrictamente igual a 50)
+
+
+    </script>
+</body>
+</html>

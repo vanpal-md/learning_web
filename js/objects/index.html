@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objetos, Métodos y Atributos</title>
+    <script>
+        function objectsAndThis() {            
+            const usuario = {
+                nombre: "Paqui",
+                rol: "Administradora",
+                greetings: function() {
+                   
+                    console.log("Hola, soy " + this.nombre + " y mi rol es " + this.rol);
+                }
+            };
+
+            usuario.greetings();
+
+            usuario.mostrarCiudad = function() {
+                console.log("Vivo en " + this.ciudad);
+            };
+
+            usuario.mostrarCiudad();
+
+
+            function greetings2(val) {
+                console.log("Nombre: " + this.nombre + " | Edad: " + this.edad + " | Numero por parámetro: " + val);
+            }
+
+            function greetings3(contact, val) {
+                console.log("Nombre: " + contact.nombre + " | Edad: " + contact.edad + " | Numero por parámetro: " + val + " | Fecha: " + contact);
+            }
+
+            const contacto1 = { nombre: "Romualdo" };
+            contacto1.presentar = greetings2;
+            contacto1.presentar();
+
+            const contacto2 = { 
+                nombre: "Agripina", 
+                edad: 28 
+            };
+            
+            contacto2.presentar = greetings2;
+            contacto2.presentar(9);
+            // contacto2.greetings2(8);
+
+            const alumno =  {
+                nombre: "Federico",
+                edad: 44,
+                date:  new Date()
+            }
+
+
+            greetings3(contacto2, 54);
+             greetings3(alumno, 54);
+            
+        }
+
+
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="../index.html">Volver al Inicio</a></nav>
+        <div>Pulsar F12 para abrir las herramientas de desarrollo</div>
+    </nav>
+    <script>
+        objectsAndThis();
+    </script>
+</body>
+</html>
