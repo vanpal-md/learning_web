@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escuchadores de eventos</title>
+    <script>
+        function addEventHandler(btn){
+            let buttons = document.getElementsByClassName("enableBtn")
+            for (let element of buttons){
+                element.addEventListener("click", (btn) => {
+                    console.log("Botón pulsado", btn.target.textContent)
+                })
+            }
+            btn.remove()
+        }
+    </script>
+</head>
+<body>
+    <nav><a href="../index.html">← Volver atrás</a><div>Pulsar F12 para abrir las herramientas de desarrollo</div>
+    <a href="../../exercise/event-listener/index.html">Ejemplo</a></nav>
+    <button id="addFunc" onclick="addEventHandler(this)">Añadir funcionamiento</button>
+    <button class="enableBtn">Funcionará...1</button>
+    <button class="enableBtn">Funcionará...2</button>
+    <button class="enableBtn">Funcionará...3</button>
+    <button class="enableBtn">Funcionará...4</button>
+    <button class="enableBtn">Funcionará...5</button>
+</body>
+</html>

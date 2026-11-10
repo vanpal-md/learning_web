@@ -1,0 +1,189 @@
+/* Variables */
+:root{
+    --background-web: #f7f5f2;
+    --background-card: #ffffff;
+
+    --border: #e2e8f0;
+    --border-soft: #edf2f7;
+
+    --text: #2c2c2c;
+    --text-soft: #94a3b8;
+
+    --add-soft: #d9482b;
+    --add-dark: #b83720;
+    --add-ultra-soft: #fcfcfc;
+    --btn-check: #e66a52;
+
+    --white: #ffffff;
+
+    --red: #ef4444;
+    --red-soft: #fee2e2;
+
+}
+
+/* Reset estilos */
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/* Fondo web */
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--background-web);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 60px 20px;
+
+}
+
+/* Tarjeta contenedora */
+
+.container{
+    border: 1px solid var(--border);
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--background-card);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    padding: 32px 24px
+}
+
+/* Cabecera */
+
+header{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 24px;
+}
+
+header span {
+    color: var(--add-soft)
+}
+
+/* Añadir tarea */
+
+.input-container{
+    display:flex;
+    align-items: center;
+    background-color: var(--background-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 6px 6px 6px 14px;
+    margin-bottom: 24px;
+}
+
+.input-container input{
+    flex: 1;
+    border: none;
+    background: transparent;
+    outline: none;
+}
+
+.btn-submit{
+    border-radius: 8px;
+    padding: 6px;
+    border: none;
+    background-color: var(--add-soft);
+    cursor: pointer;
+    color: var(--white);
+    font-size: 0.88rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-submit:hover{
+    background-color: var(--add-dark);
+}
+
+.btn-submit:active{
+    transform: scale(0.9);
+}
+
+/* Tareas */
+
+.task-list{
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-card);
+    border: 1px solid var(--border-soft);
+    border-radius: 10px;
+    padding: 12px 14px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    transition: all 0.2s ease;
+}
+
+.task-item.done{
+    color: var(--text-soft);
+    background-color: var(--white);
+    
+}
+
+.task-item:hover{
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+}
+
+.task-item.done .task-name{
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.btn-check{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    background: transparent;
+    color: transparent;
+    cursor: pointer;
+    font-size: 0.75rem;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+.btn-check:hover{
+    border-color: var(--add-soft)
+}
+
+.task-item.done .btn-check{
+    background-color: var(--add-soft);
+    border-color: var(--add-soft);
+    background: var(--btn-check);
+    color: var(--white);
+}
+
+.task-item:hover .btn-delete{
+    opacity: 1;
+}
+
+.btn-delete{
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+    color: var(--text);
+    padding: 4px;
+    display:flex;
+    opacity: 0.25;
+    transition: opacity 0.2s,background-color 0.2s, color 0.2s;
+}
+
+.btn-delete:hover{
+    color: var(--red);
+    background-color: var(--red-soft);
+    opacity: 1;
+}

@@ -5,33 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Funciones</title>
     <script>
-        function suma(a, b) {
-            return a + b;
+        function suma(a, b){
+            return a+b;
         }
-        function resta_nf(a, b) {
-            console.log("El valor de la resta es: "+ a - b);
+
+        function resta_nf(a, b){
+            console.log("El valor de la resta es: " + a-b);
         }
-        function resta_f(a, b) {
-            console.log("El valor de la resta es: "+ (a - b));
+
+        function resta_f(a, b){
+            console.log("El valor de la resta es: " + (a-b));
         }
-        multiply = function (a, b) {
-            console.log (a*b);
+
+        multiply=function(a, b){
+            return a*b
         }
     </script>
 </head>
 <body>
-    <nav><a href="../index.html">Volver al Inicio</a></nav>
-    <h1>Funciones</h1>
+    <nav><a href="../index.html">← Volver atrás</a><div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
     <script>
-        res = suma(5, 13);
-        // suma(2, 1);
-        // suma(2, 2);
-        // suma(2, 3);
-        // suma(2, 4);
-        // suma(2, 5);
-        // suma(2, 6);
-        console.log (res);
-        multiply(5,5);
+        res = suma(5,13);
+        console.log(res);
+        res_mult= multiply(5,6);
+        console.log(res_mult);
         resta_nf(8,5);
         resta_f(8,5);
     </script>

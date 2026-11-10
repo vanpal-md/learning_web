@@ -3,46 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clases y Objetos</title>
+    <title>Clases y objetos</title>
     <script>
-        class Car {
-            constructor(brand, model) {
+        class Car{
+            constructor(brand, model){
                 this.brand = brand;
                 this.model = model;
             }
-            showInfo() {
-                console.log("El coches es un", this.brand, this.model);
+
+            showInfo(){
+                console.log("El coche es un", this.brand, this.model);
             }
         }
-        class NominaAnual {
-            constructor(name, salary) {
+
+        class NominaAnual{
+            constructor(name, salary){
                 this.name = name;
-                this.salary = salary;
+                this.salary= salary;
             }
+
             getMonthlyPayment(){
-                console.log(this.name, "cobrará", this.salary/14, "por mes");
+                console.log(this.name, "cobrará", this.salary/14, "€ por mes en 14 pagas");
             }
             getProRatedPayment(){
-                console.log(this.name, "cobrará", this.salary/12, "en 12 pagas prorateadas");
+                console.log(this.name, "cobrará", this.salary/12, "€ por mes en 12 pagas prorrateada");
             }
         }
     </script>
 </head>
 <body>
-    <nav><a href="../index.html">Volver al Inicio</a></nav>
-    <h1>Clases y Objetos</h1>
+    <nav><a href="../index.html">← Volver atrás</a><div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
     <script>
         let car = new Car("Citroën", "Xsara");
-        console.log(car.model);
         let car2 = new Car("Toyota", "Avensis");
         let car3 = new Car("Renault", "Clio");
-        car.showInfo();
-        car2.showInfo();
-        car3.showInfo();
+
+        car.showInfo()
+        car2.showInfo()
+        car3.showInfo()
 
         let nominaAnual = new NominaAnual("Eustaquio", 27000);
         nominaAnual.getMonthlyPayment();
         nominaAnual.getProRatedPayment();
+
     </script>
 </body>
 </html>

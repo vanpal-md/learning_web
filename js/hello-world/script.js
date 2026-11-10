@@ -1,1 +1,1 @@
-console.log("Hello, World desde el ficjero externo!");
+console.log("Mensaje desde un fichero externo");

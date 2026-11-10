@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alcance de variables</title>
+    <title>Alcance variables</title>
     <script>
-        var mensaje1 = "Hola mundo desde var";
-        let mensaje2 = "Hola mundo desde let";
+        // Al declarar una variable con var, se puede redeclarar y reasignar su valor posteriormente de manera invisible para el usuario.
+        var usuario = "Hermenegildo";
+        var usuario = "Anacleto";
+        console.log(usuario);
+        // Si usamos let, no se puede redeclarar la variable dentro del mismo alcance, solo se puede reasignar su valor.
+        let usuarioLet = "Hermenegildo";
+        // let usuarioLet = "Anacleto"; // Esto generaría un error
+        usuarioLet = "Gildo";
+        console.log(usuarioLet);
 
-        function funcionVar (){
-            var fnVar ="Estado 1 Var";
-            if (true) {
-                var fnVar = "Estado 2 Var";
-                console.log (fnVar);
-            }
-            console.log (fnVar);
+        //Las variables declaradas con var tienen alcance de función, no de bloque. Por eso se puede acceder a 'price' fuera del if.
+        var isAdult = true;
+
+        if (isAdult) {
+        var price = 100; 
         }
-        function funcionLet (){
-            var fnLet ="Estado 1 Let";
-            if (true) {
-                let fnLet = "Estado 2 Let";
-                console.log (fnLet);
-            }
-            console.log (fnLet);
+        console.log(price);
+
+        //Lo correcto seria usar let o const para que la variable tenga alcance de bloque
+        //Al usar let, la variable solo existe dentro del bloque if y no se puede acceder fuera de él.
+        let priceLet;
+        if (isAdult) {
+            priceLet = 250;
         }
+        console.log(priceLet);
     </script>
 </head>
 <body>
-    <nav><a href="../index.html">Volver al Inicio</a></nav>
-    <h1>Alcance de variables</h1>
+    <nav><a href="../index.html">← Volver atrás</a><div>Pulsar F12 para abrir las herramientas de desarrollo</div></nav>
     <script>
-        funcionVar();
-        funcionLet();
+
     </script>
 </body>
 </html>
